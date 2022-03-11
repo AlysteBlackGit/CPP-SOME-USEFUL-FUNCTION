@@ -1,0 +1,8 @@
+						SOME USEFUL DEFINITIONS FOR C++
+
+#define push(a) push_back(a)
+#define pop(a) pop_back(a)
+#define ll long long
+#define FORI(ii,n) for (vector<ll>::iterator ii = a.begin(); ii != a.end(); ++ii)
+#define FOR(i,a) for (ll i = 0; i < a; ++i)
+#define N 105
