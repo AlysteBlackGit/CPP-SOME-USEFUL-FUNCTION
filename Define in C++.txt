@@ -1,8 +1,12 @@
 						SOME USEFUL DEFINITIONS FOR C++
 
-#define push(a) push_back(a)
-#define pop(a) pop_back(a)
 #define ll long long
-#define FORI(ii,n) for (vector<ll>::iterator ii = a.begin(); ii != a.end(); ++ii)
-#define FOR(i,a) for (ll i = 0; i < a; ++i)
-#define N 105
+#define db double
+#define faster() ios_base::sync_with_stdio(false); cin.tie(0)
+#define FOR(i,a,b) for(ll i=a;i<b;++i)
+#define Test() ll t; cin>>t; while(t--)
+#define pb push_back
+#define po pop_back
+#define rs resize
+#define ins insert
+const ll m=1e9+7;
