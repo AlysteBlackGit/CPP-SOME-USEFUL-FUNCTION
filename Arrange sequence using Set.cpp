@@ -31,7 +31,6 @@ using namespace std;
 #define ins insert
 #define del erase
 const ll m = 1e9 + 7;
-int res[10005];
 int main(){
 	faster();
 	#ifndef ONLINE_JUDGE

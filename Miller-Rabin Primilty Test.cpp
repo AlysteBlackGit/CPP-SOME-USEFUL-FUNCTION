@@ -1,4 +1,4 @@
-					//	MILER - RABIN PRIMALITY TEST // 
+					//	MILLER - RABIN PRIMALITY TEST // 
 
 #include <bits/stdc++.h>
 using namespace std;
