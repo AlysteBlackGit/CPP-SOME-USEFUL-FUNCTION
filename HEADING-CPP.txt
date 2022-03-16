@@ -29,4 +29,9 @@
 #define del erase
 const ll m = 1e9 + 7;
 using namespace std;
-int main(){}
+int main(){
+  #ifndef ONLINE_JUDGE
+    freopen("input.txt","r",stdin);
+    freopen("output.txt","w",stdout);
+  #endif
+}
