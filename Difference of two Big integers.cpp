@@ -87,7 +87,7 @@ void Difference_of_two_bigint(string a,string b){
 			redundance = 0;
 		}
 		res[i] += num_1[i];
-		if (res[i] < 0)
+		if (res[i] < 0) 
 		{
 			++redundance;
 			res[i] += 10;
