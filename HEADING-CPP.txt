@@ -1,3 +1,4 @@
+                                                                // OPEN C++ DEFINE SOURCE CODE // 
 #include<bits/stdc++.h>
 #define ll long long
 #define db double
