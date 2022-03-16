@@ -23,7 +23,7 @@ using namespace std;
 #define Test() \
 	ll t;      \
 	cin >> t;  \
-	while (t--)za0tr
+	while (t--)
 #define pb push_back
 #define po pop_back
 #define rs resize
