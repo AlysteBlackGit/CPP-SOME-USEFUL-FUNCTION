@@ -1,73 +1,136 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define faster()                      \
-ios_base::sync_with_stdio(false); \
-cin.tie(0)
-#define ll long long
-#define FOR(i, a, b) for (ll i = a; i < b; ++i)
-#define FORI(i, a) for (vector<ll>::iterator i = a.begin(); i != a.end(); ++i)
-#define FORR(i, a, b) for (vector<ll>::iterator i = a; i <= b; ++i)
-#define FORS(i, a, b) for(set<vector<ll>>::iterator i=a;i<=b;++i)
-#define FORD(i,a,b,d) for(ll i=a;i<b;i+=d)
-#define all(a) a.begin(), a.end()
-#define vll vector<ll>
-#define vi vector<int>
-#define vvll vector<vector<ll>>
-#define vvi vector<vector<int>>
-#define vpll vector<pair<ll,ll>>
-#define vpii vector<pair<int,int>>
-#define vs vector<string>
-#define sll set<ll>
-#define msll multiset<ll>
-#define svll set<vector<ll>>
-#define svi set<vector<int>>
-#define Test() \
-ll t;      \
-cin >> t;  \
-while (t--)
-#define pb push_back
-#define po pop_back
-#define rs resize
-#define ins insert
-#define del erase
-#define mp make_pair
-#define db double
-#define llu unsigned long long
-inline bool compare(ll a, ll b){
-return a>b;
-}
-const ll m = 1e9 + 7;
-inline bool cp(pair<ll,ll> a, pair<ll,ll> b){
-return a.second<b.second;
-}
+                                                /* DEFINE AREA */
+
+ /* Definition */                                           /* Meaning */
+
+#define faster()                                ios_base::sync_with_stdio(false);cin.tie(0)
+#define ll                                      long long
+#define llu                                     unsigned long long
+#define fl                                      float
+#define db                                      double
+#define str                                     string
+#define loop(i,a,b)                             for(ll i = a; i < b; ++i)
+#define rev_loop(i,a,b)                         for(ll i = a; i > b; --i)
+#define loop_dis(i,a,b,distance)                for(ll i = a; i < b; i += distance) 
+#define all(a)                                  a.begin(), a.end()
+#define vll                                     vector<ll>
+#define vi                                      vector<int>
+#define vs                                      vector<string>
+#define vc                                      vector<char>
+#define vvll                                    vector<vector<ll> >
+#define vvi                                     vector<vector<int> >
+#define vpll                                    vector<pair<ll,ll> >
+#define vpii                                    vector<pair<int,int> >
+#define vpls                                    vector<pair<ll,string> >
+#define vplc                                    vector<pair<ll,char> >
+#define sll                                     set<ll>
+#define sc                                      set<char>
+#define sstr                                    set<string>
+#define svll                                    set<vector<ll> >
+#define svi                                     set<vector<int> >
+#define msll                                    multiset<ll>
+#define mssc                                    multiset<char>
+#define msstr                                   multiset<string>
+#define usll                                    unordered_set<ll>
+#define usc                                     unordered_set<char>
+#define usstr                                   unordered_set<string>
+#define umsll                                   unordered_multiset<ll>
+#define umsc                                    unordered_multiset<char>
+#define umsstr                                  unordered_multiset<string>
+#define pb                                      push_back
+#define pob                                     pop_back
+#define rev                                     reverse
+#define bs                                      binary_search
+#define rs                                      resize
+#define ins                                     insert
+#define era                                     erase
+#define mp                                      make_pair
+#define f                                       first
+#define s                                       second
+#define Test()                                  ll t; cin >> t; while (t--)
+const ll mod_val =                              1e9 + 7;
+
+                                                /* INLINE FUNCTIONS */
+
+        //  Code  //                                                                                   //   Note  //
+
 inline void swap_xor(ll &a, ll &b){
-a^=b;
-b^=a;
-a^=b;
+    a^=b;                                                                                   
+    b^=a;                                                                                   /* ANOTHER WAY FOR SWAP 2 VALUES */
+    a^=b;
 }
-inline void split_string(string a, vector<string> &res){
-stringstream ss;
-ss<<a;
-string temp;
-while(ss>>temp){
-res.pb(temp);
-temp="";
+
+inline void split_string(str a, vs &res){
+    stringstream ss;
+    ss<<a;
+    str temp;
+    while(ss>>temp){                                                                        /* SPLITING WORDS IN SENTENCE HAS WHITE SPACES BETWEEN THEM */
+        res.pb(temp);
+        temp="";
+    }
 }
+
+inline ll random(ll a, ll b){
+	return (a+(ll)(rand()*(b-a+1.0)/(1.0+RAND_MAX)));                                       /* GENERATING RANDOM VALUE, USING FOR MILLER-RABIN PRIME TEST */
 }
-template <class spe, class spe2>
-spe2 sum(spe  &a, spe2  &b){
-return a+b;
+
+inline bool miller_prime(ll n){
+	if(n<2 || (!(n%2)&&n>2)) return false;
+	bool check=true;
+    db output_value;                                                                       
+    ll input_value=log2(n-1);                                                               /* FOR CHECKING WHETHER PRIME OR NOT PRIME WITH NUMBERS FROM 0 TO 100 */
+    while(input_value>0){
+        output_value=(n-1)/pow(2,input_value);
+        if((ll)output_value==output_value && (ll)output_value%2) break;
+        --input_value;
+    }                                                                                       
+	ll ans=0;
+	loop(i,1,4){
+		ll random_value=random(2,n-2);
+		ans=(ll)pow(random_value,output_value)%n;
+		if(ans!=1 && ans!=n-1){
+			check=false;
+			break;	
+		}
+	}
+	if(check) return true;
+	ans=(ans*ans)%n;
+	if(ans==1 || ans==n-1) return true;
+	return false;
 }
-template <class T1>
-void swap_value(T1 &a, T1 &b){
-T1 temp;
-temp=a;
-a=b;
-b=temp;
+
+inline bool check_prime(ll n){
+    if(n<2 || (!(n%2)&&n>2)) return false;
+    loop_dis(i,3,sqrt(n)+1,2){                                                              /* FOR CHECKING WHETHER PRIME OR NOT PRIME WITH ALL NUMBERS */                                                        
+        if(!(n%i)) return false;                                                            
+    }                                                                                       /* TIME COMPLEXITY: O(SQRT(N)) */
+    return true;
 }
+
+inline void build_Era_sieve(vll &sieve,ll size){
+    sieve[0]=sieve[1]=0;            
+    sieve[2]=1;                                                                                     
+    loop(i,2,sqrt(size)+1){                                                                 /* FOR CHECKING WHETHER PRIME OR NOT PRIME WITH ALL NUMBERS */
+        if(sieve[i]) loop_dis(j,i*i,size,i)                                                 
+            sieve[j]=0;                                                                     /* TIME COMPLEXITY: O(LOG(N)) */
+    }
+}
+
+inline ll expo(ll n, ll m){
+    if(m==1) return n;                                                                      /* ANOTHER WAY FOR EVALUATING POW(N,M) */
+    if(!(m%2)) return expo(n,m/2) * expo(n,m/2);                                            
+    return expo(n,m/2) * expo(n,m/2) * n;                                                   /* TIME COMPLEXITY: O(LOG(N)) */
+}
+
+                                                /* INT MAIN */
 int main(){
-#ifndef ONLINE_JUDGE
-freopen("input_II.txt","r",stdin);
-freopen("output_II.txt","w",stdout);
-#endif
+    faster();
+    #ifndef ONLINE_JUDGE
+        freopen("input.txt","r",stdin);
+        freopen("output.txt","w",stdout);
+    #endif
+    Test(){
+        
+    }
 }
