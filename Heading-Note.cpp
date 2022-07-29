@@ -10,7 +10,7 @@ using namespace std;
 #define fl                                      float
 #define db                                      double
 #define str                                     string
-#define ch										char
+#define ch										                  char
 #define loop(i,a,b)                             for(ll i = a; i < b; ++i)
 #define rev_loop(i,a,b)                         for(ll i = a; i > b; --i)
 #define loop_dis(i,a,b,distance)                for(ll i = a; i < b; i += distance) 
@@ -39,43 +39,43 @@ using namespace std;
 #define umsll                                   unordered_multiset<ll>
 #define umsc                                    unordered_multiset<ch>
 #define umsstr                                  unordered_multiset<str>
-#define mllll									map<ll,ll>
-#define mllstr 									map<ll,str>
-#define mstrll									map<str,ll>
-#define mcll									map<ch,ll>
-#define mllc									map<ll,ch>
-#define mcstr									map<ch,str>
-#define mstrc									map<str,ch>
-#define umllll									unordered_map<ll,ll>
-#define umllstr									unordered_map<ll,str>
-#define umstrll									unordered_map<str,ll>
-#define umcll									unordered_map<ch,ll>
-#define umllc									unordered_map<ll,ch>
-#define umcstr									unordered_map<ch,str>
-#define umstrc									unordered_map<str,ch>
-#define qll 									queue<ll>
-#define qstr									queue<str>
-#define qc										queue<ch>
-#define emp										empty
-#define pu										push
+#define mllll									                  map<ll,ll>
+#define mllstr 									                map<ll,str>
+#define mstrll									                map<str,ll>
+#define mcll								                  	map<ch,ll>
+#define mllc									                  map<ll,ch>
+#define mcstr									                  map<ch,str>
+#define mstrc									                  map<str,ch>
+#define umllll									                unordered_map<ll,ll>
+#define umllstr									                unordered_map<ll,str>
+#define umstrll									                unordered_map<str,ll>
+#define umcll									                  unordered_map<ch,ll>
+#define umllc									                  unordered_map<ll,ch>
+#define umcstr									                unordered_map<ch,str>
+#define umstrc									                unordered_map<str,ch>
+#define qll 									                  queue<ll>
+#define qstr									                  queue<str>
+#define qc										                  queue<ch>
+#define emp										                  empty
+#define pu										                  push
 #define pb                                      push_back
 #define pob                                     pop_back
 #define rev                                     reverse
 #define rs                                      resize
 #define ins                                     insert
 #define era                                     erase
-#define cl										clear
+#define cl										                  clear
 #define mp                                      make_pair
-#define fr										front
+#define fr									                  	front
 #define f                                       first
 #define s                                       second
 #define bs                                      binary_search
-#define lb										lower_bound
-#define ub										upper_bound
+#define lb										                  lower_bound
+#define ub										                  upper_bound
 #define Test()                                  ll t; cin >> t; while (t--)
 const ll mod_val =                              1e9 + 7;
 
-                            /* INLINE FUNCTIONS */
+                                                /* INLINE FUNCTIONS */
 
         //  Code  //                                                                                   //   Note  //
 
@@ -146,7 +146,7 @@ inline ll expo(ll n, ll m){
     if(!(m%2)) return expo(n,m/2) * expo(n,m/2);                                            
     return expo(n,m/2) * expo(n,m/2) * n;                                                   /* TIME COMPLEXITY: O(LOG(N)) */
 }
-                                /* INT MAIN */
+                                                        /* INT MAIN */
 int main(){
     faster();
     #ifndef ONLINE_JUDGE
