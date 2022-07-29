@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-                                                /* DEFINE AREA */
+							/* DEFINE AREA */
 
  /* Definition */                                           /* Meaning */
 
@@ -10,34 +10,40 @@ using namespace std;
 #define fl                                      float
 #define db                                      double
 #define str                                     string
+#define ch										char
 #define loop(i,a,b)                             for(ll i = a; i < b; ++i)
 #define rev_loop(i,a,b)                         for(ll i = a; i > b; --i)
 #define loop_dis(i,a,b,distance)                for(ll i = a; i < b; i += distance) 
 #define all(a)                                  a.begin(), a.end()
 #define vll                                     vector<ll>
 #define vi                                      vector<int>
-#define vs                                      vector<string>
-#define vc                                      vector<char>
+#define vs                                      vector<str>
+#define vc                                      vector<ch>
 #define vvll                                    vector<vector<ll> >
 #define vvi                                     vector<vector<int> >
 #define vpll                                    vector<pair<ll,ll> >
 #define vpii                                    vector<pair<int,int> >
-#define vpls                                    vector<pair<ll,string> >
-#define vplc                                    vector<pair<ll,char> >
+#define vpls                                    vector<pair<ll,str> >
+#define vplc                                    vector<pair<ll,ch> >
 #define sll                                     set<ll>
-#define sc                                      set<char>
-#define sstr                                    set<string>
+#define sc                                      set<ch>
+#define sstr                                    set<str>
 #define svll                                    set<vector<ll> >
 #define svi                                     set<vector<int> >
 #define msll                                    multiset<ll>
-#define mssc                                    multiset<char>
-#define msstr                                   multiset<string>
+#define mssc                                    multiset<ch>
+#define msstr                                   multiset<str>
 #define usll                                    unordered_set<ll>
-#define usc                                     unordered_set<char>
-#define usstr                                   unordered_set<string>
+#define usc                                     unordered_set<ch>
+#define usstr                                   unordered_set<str>
 #define umsll                                   unordered_multiset<ll>
-#define umsc                                    unordered_multiset<char>
-#define umsstr                                  unordered_multiset<string>
+#define umsc                                    unordered_multiset<ch>
+#define umsstr                                  unordered_multiset<str>
+#define qll 									queue<ll>
+#define qstr									queue<str>
+#define qc										queue<ch>
+#define emp										empty
+#define pu										push
 #define pb                                      push_back
 #define pob                                     pop_back
 #define rev                                     reverse
@@ -46,29 +52,30 @@ using namespace std;
 #define ins                                     insert
 #define era                                     erase
 #define mp                                      make_pair
+#define fr										front
 #define f                                       first
 #define s                                       second
 #define Test()                                  ll t; cin >> t; while (t--)
 const ll mod_val =                              1e9 + 7;
 
-                                                /* INLINE FUNCTIONS */
+							/* INLINE FUNCTIONS */
 
-        //  Code  //                                                                                   //   Note  //
+		//  Code  //                                                                                   //   Note  //
 
 inline void swap_xor(ll &a, ll &b){
-    a^=b;                                                                                   
-    b^=a;                                                                                   /* ANOTHER WAY FOR SWAP 2 VALUES */
-    a^=b;
+	a^=b;                                                                                   
+	b^=a;                                                                                   /* ANOTHER WAY FOR SWAP 2 VALUES */
+	a^=b;
 }
 
 inline void split_string(str a, vs &res){
-    stringstream ss;
-    ss<<a;
-    str temp;
-    while(ss>>temp){                                                                        /* SPLITING WORDS IN SENTENCE HAS WHITE SPACES BETWEEN THEM */
-        res.pb(temp);
-        temp="";
-    }
+	stringstream ss;
+	ss<<a;
+	str temp;
+	while(ss>>temp){                                                                        /* SPLITING WORDS IN SENTENCE HAS WHITE SPACES BETWEEN THEM */
+		res.pb(temp);
+		temp="";
+	}
 }
 
 inline ll random(ll a, ll b){
@@ -78,13 +85,13 @@ inline ll random(ll a, ll b){
 inline bool miller_prime(ll n){
 	if(n<2 || (!(n%2)&&n>2)) return false;
 	bool check=true;
-    db output_value;                                                                       
-    ll input_value=log2(n-1);                                                               /* FOR CHECKING WHETHER PRIME OR NOT PRIME WITH NUMBERS FROM 0 TO 100 */
-    while(input_value>0){
-        output_value=(n-1)/pow(2,input_value);
-        if((ll)output_value==output_value && (ll)output_value%2) break;
-        --input_value;
-    }                                                                                       
+	db output_value;                                                                       
+	ll input_value=log2(n-1);                                                               /* FOR CHECKING WHETHER PRIME OR NOT PRIME WITH NUMBERS FROM 0 TO 100 */
+	while(input_value>0){
+		output_value=(n-1)/pow(2,input_value);
+		if((ll)output_value==output_value && (ll)output_value%2) break;
+		--input_value;
+	}                                                                                       
 	ll ans=0;
 	loop(i,1,4){
 		ll random_value=random(2,n-2);
@@ -101,36 +108,34 @@ inline bool miller_prime(ll n){
 }
 
 inline bool check_prime(ll n){
-    if(n<2 || (!(n%2)&&n>2)) return false;
-    loop_dis(i,3,sqrt(n)+1,2){                                                              /* FOR CHECKING WHETHER PRIME OR NOT PRIME WITH ALL NUMBERS */                                                        
-        if(!(n%i)) return false;                                                            
-    }                                                                                       /* TIME COMPLEXITY: O(SQRT(N)) */
-    return true;
+	if(n<2 || (!(n%2)&&n>2)) return false;
+	loop_dis(i,3,sqrt(n)+1,2){                                                              /* FOR CHECKING WHETHER PRIME OR NOT PRIME WITH ALL NUMBERS */                                                        
+		if(!(n%i)) return false;                                                        
+	}                                                                                       /* TIME COMPLEXITY: O(SQRT(N)) */
+	return true;
 }
 
 inline void build_Era_sieve(vll &sieve,ll size){
-    sieve[0]=sieve[1]=0;            
-    sieve[2]=1;                                                                                     
-    loop(i,2,sqrt(size)+1){                                                                 /* FOR CHECKING WHETHER PRIME OR NOT PRIME WITH ALL NUMBERS */
-        if(sieve[i]) loop_dis(j,i*i,size,i)                                                 
-            sieve[j]=0;                                                                     /* TIME COMPLEXITY: O(LOG(N)) */
-    }
+	sieve[0]=sieve[1]=0;            
+	sieve[2]=1;                                                                                     
+	loop(i,2,sqrt(size)+1){                                                                 /* FOR CHECKING WHETHER PRIME OR NOT PRIME WITH ALL NUMBERS */
+		if(sieve[i]) loop_dis(j,i*i,size,i)                                                 
+			sieve[j]=0;                                                                     /* TIME COMPLEXITY: O(LOG(N)) */
+	}
 }
 
 inline ll expo(ll n, ll m){
-    if(m==1) return n;                                                                      /* ANOTHER WAY FOR EVALUATING POW(N,M) */
-    if(!(m%2)) return expo(n,m/2) * expo(n,m/2);                                            
-    return expo(n,m/2) * expo(n,m/2) * n;                                                   /* TIME COMPLEXITY: O(LOG(N)) */
+	if(m==1) return n;                                                                      /* ANOTHER WAY FOR EVALUATING POW(N,M) */
+	if(!(m%2)) return expo(n,m/2) * expo(n,m/2);                                            
+	return expo(n,m/2) * expo(n,m/2) * n;                                                   /* TIME COMPLEXITY: O(LOG(N)) */
 }
-
-                                                /* INT MAIN */
+								/* INT MAIN */
 int main(){
-    faster();
-    #ifndef ONLINE_JUDGE
-        freopen("input.txt","r",stdin);
-        freopen("output.txt","w",stdout);
-    #endif
-    Test(){
-        
-    }
+	faster();
+	#ifndef ONLINE_JUDGE
+		freopen("input.txt","r",stdin);
+		freopen("output.txt","w",stdout);
+	#endif
+	Test(){
+	}
 }
